@@ -31,7 +31,7 @@ export const Location = styled.div`
   p {
     font-family: 'Roboto';
     font-size: 0.875rem;
-    weight: 400;
+    font-weight: 400;
     line-height: 1.7;
   }
 `
