@@ -6,3 +6,10 @@ export const Card = styled.div`
   height: 310px;
   width: 256px;
 `
+
+export const CoffeeList = styled.div`
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  row-gap: 2.5rem;
+  column-gap: 2rem;
+`
