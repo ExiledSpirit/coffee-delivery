@@ -13,10 +13,3 @@ export const CoffeeSelector = styled.div`
     color: ${(props) => props.theme['base-subtitle']};
   }
 `
-
-export const CoffeeList = styled.div`
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  row-gap: 2.5rem;
-  column-gap: 2rem;
-`

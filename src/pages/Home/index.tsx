@@ -1,6 +1,6 @@
-import { HomeCoffeeCard } from './components/HomeCoffeeCard'
+import { CoffeeList } from './components/CoffeeList'
 import { HomeCover } from './components/HomeCover'
-import { CoffeeList, CoffeeSelector } from './styles'
+import { CoffeeSelector } from './styles'
 
 export function Home() {
   return (
@@ -8,16 +8,7 @@ export function Home() {
       <HomeCover />
       <CoffeeSelector>
         <h2>Nossos Cafés</h2>
-        <CoffeeList>
-          <HomeCoffeeCard />
-          <HomeCoffeeCard />
-          <HomeCoffeeCard />
-          <HomeCoffeeCard />
-          <HomeCoffeeCard />
-          <HomeCoffeeCard />
-          <HomeCoffeeCard />
-          <HomeCoffeeCard />
-        </CoffeeList>
+        <CoffeeList />
       </CoffeeSelector>
     </div>
   )
