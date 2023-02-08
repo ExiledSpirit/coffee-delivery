@@ -1,5 +1,6 @@
 import {
   Cover,
+  CoverImage,
   CoverItemCard,
   CoverItensGrid,
   CoverText,
@@ -48,7 +49,7 @@ export function HomeCover() {
           </CoverItemCard>
         </CoverItensGrid>
       </CoverText>
-      <img src={HomeCoverIcon} alt="" />
+      <CoverImage src={HomeCoverIcon} alt="" />
     </Cover>
   )
 }

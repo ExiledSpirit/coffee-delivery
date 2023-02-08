@@ -79,3 +79,8 @@ export const CoverItemCard = styled.div<coverItemCardProps>`
     font-size: 1rem;
   }
 `
+
+export const CoverImage = styled.img`
+  width: 29.75rem;
+  height: 22.5rem;
+`

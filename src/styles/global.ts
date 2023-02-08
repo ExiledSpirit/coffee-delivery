@@ -15,12 +15,21 @@ export const GlobalStyle = createGlobalStyle`
 
   :focus {
     outline: 0;
-    box-shadow: 0 0 0 2px ${(props) => props.theme['yellow-dark']};
   }
 
   body, input, textarea, button {
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
     font-size: 1rem;
+  }
+
+  @media (max-width: 1440px) {
+    html {
+      font-size: 70.5%;
+    }
+
+    .wrapper {
+      grid-template-columns: 1fr;
+    }
   }
 `
