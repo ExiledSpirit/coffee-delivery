@@ -1,4 +1,10 @@
-import { ReactNode, createContext, useContext, useReducer } from 'react'
+import {
+  ReactNode,
+  createContext,
+  useContext,
+  useEffect,
+  useReducer,
+} from 'react'
 import { CoffeeProduct } from '../shared/coffee-list'
 import { CartProduct, cartReducer } from '../reducers/cart/reducer'
 import {
@@ -36,6 +42,12 @@ export function CartContextProvider({ children }: { children: ReactNode }) {
     },
   )
 
+  useEffect(() => {
+    const stateJSON = JSON.stringify(cartState)
+
+    localStorage.setItem('@coffee-delivery:cart-state-1.0.0', stateJSON)
+  }, [cartState])
+
   const { products } = cartState
 
   function addProduct(product: CoffeeProduct, quantity: number) {
@@ -58,6 +70,10 @@ export function CartContextProvider({ children }: { children: ReactNode }) {
     (prev, product) => prev + product.quantity,
     0,
   )
+
+  console.log(overallQuantity)
+
+  console.log(products)
 
   const totalCost = products.reduce(
     (prev, product) => prev + product.quantity * product.coffee.price,
