@@ -32,6 +32,7 @@ export function CartContextProvider({ children }: { children: ReactNode }) {
       )
 
       if (storedStateAsJSON) return JSON.parse(storedStateAsJSON)
+      return { products: [] }
     },
   )
 
