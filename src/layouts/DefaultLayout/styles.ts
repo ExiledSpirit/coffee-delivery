@@ -12,6 +12,6 @@ export const LayoutContainer = styled.div`
 
 export const OutletContainer = styled.div`
   margin: 0 auto;
-  padding: 0 10rem 10rem 2rem;
+  padding: 5rem 10rem 10rem 2rem;
   max-width: 1440px;
 `

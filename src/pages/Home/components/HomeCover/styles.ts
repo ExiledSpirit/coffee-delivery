@@ -4,7 +4,7 @@ export const Cover = styled.div`
   display: flex;
   flex-direction: row;
   width: 100%;
-  padding: 5rem 0;
+  padding: 0 0 5rem 0;
   gap: 3.5rem;
 
   .background {
