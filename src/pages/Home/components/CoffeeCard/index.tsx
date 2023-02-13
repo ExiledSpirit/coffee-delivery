@@ -45,6 +45,7 @@ export function CoffeeCard({ coffee }: CoffeeCardProps) {
   }
 
   function handleAddProduct() {
+    setQuantity(1)
     if (onCart) {
       updateProductQuantity(coffee.id, quantity)
       return

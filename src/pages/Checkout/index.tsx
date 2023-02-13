@@ -1,5 +1,6 @@
 import {
   CafezesSelecionadosCard,
+  CafezesSelecionadosContainer,
   CheckoutContainer,
   CompletePedidoCard,
   CompletePedidoContainer,
@@ -9,10 +10,14 @@ export function Checkout() {
   return (
     <CheckoutContainer>
       <CompletePedidoContainer>
+        <p>Complete seu pedido</p>
         <CompletePedidoCard></CompletePedidoCard>
         <CompletePedidoCard></CompletePedidoCard>
       </CompletePedidoContainer>
-      <CafezesSelecionadosCard></CafezesSelecionadosCard>
+      <CafezesSelecionadosContainer>
+        <p>Cafés selecionados</p>
+        <CafezesSelecionadosCard></CafezesSelecionadosCard>
+      </CafezesSelecionadosContainer>
     </CheckoutContainer>
   )
 }
