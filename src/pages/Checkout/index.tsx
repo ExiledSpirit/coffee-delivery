@@ -1,12 +1,17 @@
+import { useCart } from '../../contexts/cart-context'
+import { CafeSelecionadoCard } from './components/CafeSelecionado'
 import {
   CafezesSelecionadosCard,
   CafezesSelecionadosContainer,
   CheckoutContainer,
   CompletePedidoCard,
   CompletePedidoContainer,
+  Separator,
 } from './styles'
 
 export function Checkout() {
+  const { products } = useCart()
+
   return (
     <CheckoutContainer>
       <CompletePedidoContainer>
@@ -16,7 +21,19 @@ export function Checkout() {
       </CompletePedidoContainer>
       <CafezesSelecionadosContainer>
         <p>Cafés selecionados</p>
-        <CafezesSelecionadosCard></CafezesSelecionadosCard>
+        <CafezesSelecionadosCard>
+          {products.map((product) => {
+            return (
+              <>
+                <CafeSelecionadoCard
+                  key={product.coffee.id}
+                  coffee={product.coffee}
+                />
+                <Separator />
+              </>
+            )
+          })}
+        </CafezesSelecionadosCard>
       </CafezesSelecionadosContainer>
     </CheckoutContainer>
   )

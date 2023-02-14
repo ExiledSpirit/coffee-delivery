@@ -24,7 +24,10 @@ export const CafezesSelecionadosContainer = styled.div`
 `
 
 export const CafezesSelecionadosCard = styled(BaseCard)`
+  display: flex;
+  flex-direction: column;
   border-radius: 6px 44px;
+  gap: 2rem;
 `
 
 export const CompletePedidoContainer = styled.div`
@@ -42,4 +45,13 @@ export const CompletePedidoContainer = styled.div`
 
 export const CompletePedidoCard = styled(BaseCard)`
   border-radius: 6px;
+`
+
+export const Separator = styled.div`
+  width: 100%;
+  border: 1px solid ${(props) => props.theme['base-button']};
+`
+
+export const CheckoutInfo = styled.div`
+  displ
 `
