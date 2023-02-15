@@ -71,10 +71,6 @@ export function CartContextProvider({ children }: { children: ReactNode }) {
     0,
   )
 
-  console.log(overallQuantity)
-
-  console.log(products)
-
   const totalCost = products.reduce(
     (prev, product) => prev + product.quantity * product.coffee.price,
     0,

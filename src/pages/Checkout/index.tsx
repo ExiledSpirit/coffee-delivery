@@ -10,7 +10,7 @@ import {
 } from './styles'
 
 export function Checkout() {
-  const { products } = useCart()
+  const { products, totalCost } = useCart()
 
   return (
     <CheckoutContainer>
@@ -33,6 +33,7 @@ export function Checkout() {
               </>
             )
           })}
+          R${totalCost.toFixed(2)}
         </CafezesSelecionadosCard>
       </CafezesSelecionadosContainer>
     </CheckoutContainer>

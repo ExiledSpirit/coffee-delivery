@@ -1,24 +1,50 @@
+import { Minus, Plus, Trash } from 'phosphor-react'
 import { useCart } from '../../../../contexts/cart-context'
 import { CoffeeProduct } from '../../../../shared/coffee-list'
 import {
   CardControls,
+  CartControls,
   CoffeeIcon,
   CoffeeInfo,
   Container,
   Price,
+  Quantity,
+  QuantityButton,
+  RemoveButton,
 } from './styles'
+import { useEffect, useState } from 'react'
 
 interface CafeSelecionadoCardProps {
   coffee: CoffeeProduct
 }
 
 export function CafeSelecionadoCard({ coffee }: CafeSelecionadoCardProps) {
-  const { products } = useCart()
+  const { products, removeProduct, updateProductQuantity } = useCart()
 
-  const quantidade =
-    products.find((product) => product.coffee.id === coffee.id)?.quantity || 1
+  const [quantity, setQuantity] = useState(
+    products.find((product) => product.coffee.id === coffee.id)?.quantity || 1,
+  )
 
-  const preco = quantidade * coffee.price
+  const preco = quantity * coffee.price
+
+  useEffect(() => {
+    updateProductQuantity(coffee.id, quantity)
+  }, [quantity, coffee, updateProductQuantity])
+
+  function handleAddQuantity() {
+    setQuantity((previousQuantity) => previousQuantity + 1)
+  }
+
+  function handleReduceQuantity() {
+    setQuantity((previousQuantity) => {
+      if (previousQuantity <= 1) return previousQuantity
+      return previousQuantity - 1
+    })
+  }
+
+  function handleRemoveProduct() {
+    removeProduct(coffee.id)
+  }
 
   return (
     <Container>
@@ -26,7 +52,21 @@ export function CafeSelecionadoCard({ coffee }: CafeSelecionadoCardProps) {
         <CoffeeIcon src={coffee.imageUrl} alt={coffee.title} />
         <CardControls>
           <p>{coffee.title}</p>
-          <p>Quantidade: {quantidade}</p>
+          <CartControls>
+            <Quantity>
+              <QuantityButton onClick={handleReduceQuantity}>
+                <Minus size={14} />
+              </QuantityButton>
+              {quantity}
+              <QuantityButton onClick={handleAddQuantity}>
+                <Plus size={14} />
+              </QuantityButton>
+            </Quantity>
+            <RemoveButton onClick={handleRemoveProduct}>
+              <Trash size={16} />
+              Remover
+            </RemoveButton>
+          </CartControls>
         </CardControls>
       </CoffeeInfo>
       <Price>R$ {preco.toFixed(2)}</Price>
