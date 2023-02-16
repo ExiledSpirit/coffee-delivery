@@ -1,0 +1,98 @@
+import styled from 'styled-components'
+
+export const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+`
+
+export const Header = styled.div`
+  display: flex;
+  flex-direction: row;
+  gap: 0.75rem;
+
+  svg {
+    color: ${(props) => props.theme['yellow-dark']};
+  }
+`
+
+export const HeaderInfo = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+`
+
+export const HeaderTitle = styled.h1`
+  font-weight: 400;
+  font-size: 1rem;
+  color: ${(props) => props.theme['base-subtitle']};
+`
+
+export const HeaderSubtitle = styled.h2`
+  font-weight: 400;
+  font-size: 1rem;
+  color: ${(props) => props.theme['base-text']};
+  font-size: 0.8125rem;
+`
+
+export const FormContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 16px;
+
+  width: 560px;
+  height: 216px;
+`
+
+const BaseInput = styled.input`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0.75rem;
+  gap: 4px;
+  height: 2.625rem;
+  background: ${(props) => props.theme['base-input']};
+  border: 1px solid ${(props) => props.theme['base-button']};
+  border-radius: 4px;
+  font-size: 0.8125rem;
+  font-weight: 400;
+  color: ${(props) => props.theme['base-label']};
+`
+
+export const CepInput = styled(BaseInput)`
+  width 12.5rem;
+`
+
+export const RuaInput = styled(BaseInput)`
+  width: 100%;
+`
+
+export const InputRow = styled.div`
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  gap: 0.75rem;
+`
+
+export const NumeroInput = styled(BaseInput)`
+  flex: 0.37;
+`
+
+export const ComplementoInput = styled(BaseInput)`
+  flex: 0.63;
+`
+
+export const BairroInput = styled(BaseInput)`
+  flex: 0.37;
+`
+
+export const CidadeInput = styled(BaseInput)`
+  flex: 1;
+`
+
+export const EstadoInput = styled(BaseInput)`
+  flex: 0.1;
+`

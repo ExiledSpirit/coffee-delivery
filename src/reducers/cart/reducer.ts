@@ -41,7 +41,9 @@ export function cartReducer(state: CartState, action: any) {
     }
     case ActionTypes.REMOVE_PRODUCT: {
       return produce(state, (draft) => {
-        draft.products.filter((product) => product.coffee.id !== payload.id)
+        draft.products = draft.products.filter(
+          (product) => product.coffee.id !== payload.id,
+        )
       })
     }
     default:

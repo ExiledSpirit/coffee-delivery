@@ -10,6 +10,7 @@ export const Container = styled.div`
 export const CardControls = styled.div`
   display: flex;
   flex-direction: column;
+  gap: 0.5rem;
 `
 
 export const CartControls = styled.div`

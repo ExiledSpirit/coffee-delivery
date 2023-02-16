@@ -44,7 +44,9 @@ export function Header() {
   return (
     <FixedHeader scroll={scrollUp || y === 0}>
       <HeaderContainer>
-        <img src={Logo} alt="" />
+        <NavLink to={''}>
+          <img src={Logo} alt="" />
+        </NavLink>
 
         <Actions>
           <Location>

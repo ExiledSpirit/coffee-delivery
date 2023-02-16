@@ -3,8 +3,10 @@ import {
   CoverImage,
   CoverItemCard,
   CoverItensGrid,
+  CoverSubtitle,
   CoverText,
   CoverTextTitle,
+  CoverTitle,
 } from './styles'
 import HomeCoverIcon from '../../../../assets/HomeCoverIcon.png'
 import HomeCoverBackground from '../../../../assets/HomeCoverBackground.svg'
@@ -16,11 +18,13 @@ export function HomeCover() {
       <img className="background" src={HomeCoverBackground} alt={''} />
       <CoverText>
         <CoverTextTitle>
-          <h1>Encontre o café perfeito para qualquer hora do dia</h1>
-          <p>
+          <CoverTitle>
+            Encontre o café perfeito para qualquer hora do dia
+          </CoverTitle>
+          <CoverSubtitle>
             Com o café delivery você recebe seu café onde estiver, a qualquer
             hora
-          </p>
+          </CoverSubtitle>
         </CoverTextTitle>
         <CoverItensGrid>
           <CoverItemCard iconColor={'darkYellow'}>
