@@ -13,7 +13,7 @@ export const BaseCard = styled.div`
 export const CafezesSelecionadosContainer = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  gap: 0.75rem;
   width: 28rem;
 `
 

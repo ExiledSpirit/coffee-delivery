@@ -23,7 +23,7 @@ export function FillAddressForm() {
   return (
     <Container>
       <Header>
-        <MapPinLine />
+        <MapPinLine size={24} />
         <HeaderInfo>
           <HeaderTitle>Endereço de Entrega</HeaderTitle>
           <HeaderSubtitle>
@@ -32,7 +32,14 @@ export function FillAddressForm() {
         </HeaderInfo>
       </Header>
       <FormContainer>
-        <CepInput id="cep" placeholder="CEP" {...register('cep')}></CepInput>
+        <InputRow>
+          <CepInput id="cep" placeholder="CEP" {...register('cep')}></CepInput>
+          <EstadoInput
+            id="estado"
+            placeholder="Estado"
+            {...register('estado')}
+          />
+        </InputRow>
         <RuaInput id="rua" placeholder="Rua" {...register('rua')}></RuaInput>
         <InputRow>
           <NumeroInput
@@ -51,17 +58,12 @@ export function FillAddressForm() {
             id="bairro"
             placeholder="Bairro"
             {...register('bairro')}
-          ></BairroInput>
+          />
           <CidadeInput
             id="cidade"
             placeholder="Cidade"
             {...register('cidade')}
-          ></CidadeInput>
-          <EstadoInput
-            id="estado"
-            placeholder="Estado"
-            {...register('estado')}
-          ></EstadoInput>
+          />
         </InputRow>
       </FormContainer>
     </Container>

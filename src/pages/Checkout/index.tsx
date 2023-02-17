@@ -18,6 +18,8 @@ import {
   FinalizarPedidoButton,
   Separator,
 } from './styles'
+import { PaymentForm } from './components/PaymentForm'
+import { useState } from 'react'
 
 const fillAddressFormValidationSchema = zod.object({
   cep: zod.string().min(1, 'Informe o CEP'),
@@ -30,8 +32,14 @@ const fillAddressFormValidationSchema = zod.object({
 })
 
 type FillAddressFormData = zod.infer<typeof fillAddressFormValidationSchema>
+
+export type PaymentMethodTypes = 'credito' | 'debito' | 'dinheiro'
+
 export function Checkout() {
   const { products, totalCost } = useCart()
+
+  const [paymentMethod, setPaymentMethod] =
+    useState<PaymentMethodTypes>('credito')
 
   const deliveryCost = 3.5
 
@@ -54,10 +62,15 @@ export function Checkout() {
         <CafezesSelecionadosText>Complete seu pedido</CafezesSelecionadosText>
         <CompletePedidoCard>
           <FormProvider {...fillAddressForm}>
-            <FillAddressForm></FillAddressForm>
+            <FillAddressForm />
           </FormProvider>
         </CompletePedidoCard>
-        <CompletePedidoCard></CompletePedidoCard>
+        <CompletePedidoCard>
+          <PaymentForm
+            paymentMethod={paymentMethod}
+            setPaymentMethod={setPaymentMethod}
+          />
+        </CompletePedidoCard>
       </CompletePedidoContainer>
       <CafezesSelecionadosContainer>
         <CafezesSelecionadosText>Cafés selecionados</CafezesSelecionadosText>

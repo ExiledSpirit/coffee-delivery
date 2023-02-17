@@ -25,7 +25,7 @@ export const HeaderInfo = styled.div`
 
 export const HeaderTitle = styled.h1`
   font-weight: 400;
-  font-size: 1rem;
+  font-size: 1.25rem;
   color: ${(props) => props.theme['base-subtitle']};
 `
 
@@ -33,37 +33,30 @@ export const HeaderSubtitle = styled.h2`
   font-weight: 400;
   font-size: 1rem;
   color: ${(props) => props.theme['base-text']};
-  font-size: 0.8125rem;
 `
 
 export const FormContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding: 0px;
-  gap: 16px;
-
-  width: 560px;
-  height: 216px;
+  padding: 0;
+  gap: 1rem;
+  width: 35rem;
 `
 
 const BaseInput = styled.input`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
   padding: 0.75rem;
-  gap: 4px;
   height: 2.625rem;
   background: ${(props) => props.theme['base-input']};
   border: 1px solid ${(props) => props.theme['base-button']};
   border-radius: 4px;
-  font-size: 0.8125rem;
+  font-size: 1rem;
   font-weight: 400;
   color: ${(props) => props.theme['base-label']};
 `
 
 export const CepInput = styled(BaseInput)`
-  width 12.5rem;
+  width: 12.5rem;
 `
 
 export const RuaInput = styled(BaseInput)`
@@ -72,7 +65,9 @@ export const RuaInput = styled(BaseInput)`
 
 export const InputRow = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-flow: row wrap;
+  flex-basis: 100%;
+  align-items: center;
   width: 100%;
   gap: 0.75rem;
 `
@@ -86,13 +81,13 @@ export const ComplementoInput = styled(BaseInput)`
 `
 
 export const BairroInput = styled(BaseInput)`
-  flex: 0.37;
+  flex: 1 1 0;
 `
 
 export const CidadeInput = styled(BaseInput)`
-  flex: 1;
+  flex: 1 1 0;
 `
 
 export const EstadoInput = styled(BaseInput)`
-  flex: 0.1;
+  width: 5rem;
 `
