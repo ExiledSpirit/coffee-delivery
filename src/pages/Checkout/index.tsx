@@ -22,7 +22,7 @@ import { PaymentForm } from './components/PaymentForm'
 import { useState } from 'react'
 
 const fillAddressFormValidationSchema = zod.object({
-  cep: zod.string().min(1, 'Informe o CEP'),
+  cep: zod.string().min(8, 'Informe o CEP'),
   rua: zod.string().min(1, 'Informe a rua'),
   numero: zod.string().min(1, 'Informe o número da residência'),
   complemento: zod.string(),
@@ -31,7 +31,9 @@ const fillAddressFormValidationSchema = zod.object({
   estado: zod.string().min(1, 'Informe o estado'),
 })
 
-type FillAddressFormData = zod.infer<typeof fillAddressFormValidationSchema>
+export type FillAddressFormData = zod.infer<
+  typeof fillAddressFormValidationSchema
+>
 
 export type PaymentMethodTypes = 'credito' | 'debito' | 'dinheiro'
 
@@ -55,6 +57,8 @@ export function Checkout() {
       estado: '',
     },
   })
+
+  function handleConfirmarPedido() {}
 
   return (
     <CheckoutContainer>
@@ -101,7 +105,9 @@ export function Checkout() {
                 <h2>R$ {(totalCost + deliveryCost).toFixed(2)}</h2>
               </CheckoutCostTotal>
             </CheckoutCostsList>
-            <FinalizarPedidoButton>Confirmar Pedido</FinalizarPedidoButton>
+            <FinalizarPedidoButton onClick={handleConfirmarPedido}>
+              Confirmar Pedido
+            </FinalizarPedidoButton>
           </CheckoutInfo>
         </CafezesSelecionadosCard>
       </CafezesSelecionadosContainer>

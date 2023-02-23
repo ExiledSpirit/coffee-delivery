@@ -12,6 +12,7 @@ import {
   HeaderSubtitle,
   HeaderTitle,
   InputRow,
+  Label,
   NumeroInput,
   RuaInput,
 } from './styles'
@@ -19,7 +20,6 @@ import { MapPinLine } from 'phosphor-react'
 
 export function FillAddressForm() {
   const { register } = useFormContext()
-
   return (
     <Container>
       <Header>
@@ -47,6 +47,7 @@ export function FillAddressForm() {
             placeholder="Número"
             {...register('numero')}
           />
+          <Label htmlFor="complemento">opcional</Label>
           <ComplementoInput
             id="complemento"
             placeholder="Complemento"

@@ -46,6 +46,9 @@ export function cartReducer(state: CartState, action: any) {
         )
       })
     }
+    case ActionTypes.CLEAR_PRODUCTS: {
+      return { products: [] }
+    }
     default:
       return state
   }

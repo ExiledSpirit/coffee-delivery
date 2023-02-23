@@ -44,6 +44,13 @@ export const FormContainer = styled.div`
   width: 35rem;
 `
 
+export const Label = styled.label`
+  text-align: right;
+  clear: both;
+  float: left;
+  margin-right: 15px;
+`
+
 const BaseInput = styled.input`
   padding: 0.75rem;
   height: 2.625rem;
@@ -52,7 +59,11 @@ const BaseInput = styled.input`
   border-radius: 4px;
   font-size: 1rem;
   font-weight: 400;
-  color: ${(props) => props.theme['base-label']};
+  color: ${(props) => props.theme['base-text']};
+
+  ::placeholder {
+    color: ${(props) => props.theme['base-label']};
+  }
 `
 
 export const CepInput = styled(BaseInput)`
