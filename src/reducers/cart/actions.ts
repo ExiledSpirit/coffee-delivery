@@ -8,13 +8,20 @@ export enum ActionTypes {
   CLEAR_PRODUCTS = 'CLEAR_PRODUCTS',
 }
 
+export interface AddProductActionPayload {
+  newProduct: CoffeeProduct
+  quantity: number
+}
+
 export function addProductAction(newProduct: CoffeeProduct, quantity: number) {
+  const payload: AddProductActionPayload = {
+    newProduct,
+    quantity,
+  }
+
   return {
     type: ActionTypes.ADD_PRODUCT,
-    payload: {
-      newProduct,
-      quantity,
-    },
+    payload,
   }
 }
 

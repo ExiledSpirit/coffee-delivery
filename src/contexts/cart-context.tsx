@@ -1,4 +1,10 @@
-import { ReactNode, createContext, useContext, useReducer } from 'react'
+import {
+  ReactNode,
+  createContext,
+  useContext,
+  useEffect,
+  useReducer,
+} from 'react'
 import { CoffeeProduct } from '../shared/coffee-list'
 import { CartProduct, cartReducer } from '../reducers/cart/reducer'
 import {
@@ -35,6 +41,12 @@ export function CartContextProvider({ children }: { children: ReactNode }) {
       return { products: [] }
     },
   )
+
+  useEffect(() => {
+    const stateJSON = JSON.stringify(cartState)
+
+    localStorage.setItem('@coffee-delivery:cart-state-1.0.0', stateJSON)
+  }, [cartState])
 
   const { products } = cartState
 

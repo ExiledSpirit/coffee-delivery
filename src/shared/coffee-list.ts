@@ -20,7 +20,6 @@ export interface CoffeeProduct {
   description: string
   price: number
   badges: string[]
-  quantity: number
 }
 
 export const coffeeOptions: CoffeeProduct[] = [
@@ -31,7 +30,6 @@ export const coffeeOptions: CoffeeProduct[] = [
     description: 'O tradicional café feito com água quente e grãos moídos',
     price: 9.9,
     badges: ['tradicional'],
-    quantity: 0,
   },
   {
     id: 'coffee02',
@@ -40,7 +38,6 @@ export const coffeeOptions: CoffeeProduct[] = [
     description: 'Expresso diluído, menos intenso que o tradicional',
     price: 9.9,
     badges: ['tradicional'],
-    quantity: 0,
   },
   {
     id: 'coffee03',
@@ -49,7 +46,6 @@ export const coffeeOptions: CoffeeProduct[] = [
     description: 'Café expresso tradicional com espuma cremosa',
     price: 9.9,
     badges: ['tradicional'],
-    quantity: 0,
   },
   {
     id: 'coffee04',
@@ -58,7 +54,6 @@ export const coffeeOptions: CoffeeProduct[] = [
     description: 'Bebida preparada com café expresso e cubos de gelo',
     price: 9.9,
     badges: ['tradicional', 'gelado'],
-    quantity: 0,
   },
   {
     id: 'coffee05',
@@ -67,7 +62,6 @@ export const coffeeOptions: CoffeeProduct[] = [
     description: 'Meio a meio de expresso tradicional com leite vaporizado',
     price: 9.9,
     badges: ['tradicional', 'com leite'],
-    quantity: 0,
   },
   {
     id: 'coffee06',
@@ -77,7 +71,6 @@ export const coffeeOptions: CoffeeProduct[] = [
       'Uma dose de café expresso com o dobro de leite e espuma cremosa',
     price: 9.9,
     badges: ['tradicional', 'com leite'],
-    quantity: 0,
   },
   {
     id: 'coffee07',
@@ -87,7 +80,6 @@ export const coffeeOptions: CoffeeProduct[] = [
       'Bebida com canela feita de doses iguais de café, leite e espuma',
     price: 9.9,
     badges: ['tradicional', 'com leite'],
-    quantity: 0,
   },
   {
     id: 'coffee08',
@@ -97,7 +89,6 @@ export const coffeeOptions: CoffeeProduct[] = [
       'Café expresso misturado com um pouco de leite quente e espuma',
     price: 9.9,
     badges: ['tradicional', 'com leite'],
-    quantity: 0,
   },
   {
     id: 'coffee09',
@@ -106,7 +97,6 @@ export const coffeeOptions: CoffeeProduct[] = [
     description: 'Café expresso com calda de chocolate, pouco leite e espuma',
     price: 9.9,
     badges: ['tradicional', 'com leite'],
-    quantity: 0,
   },
   {
     id: 'coffee10',
@@ -115,7 +105,6 @@ export const coffeeOptions: CoffeeProduct[] = [
     description: 'Bebida feita com chocolate dissolvido no leite quente e café',
     price: 9.9,
     badges: ['tradicional', 'com leite'],
-    quantity: 0,
   },
   {
     id: 'coffee11',
@@ -125,7 +114,6 @@ export const coffeeOptions: CoffeeProduct[] = [
       'Drink gelado de café expresso com rum, creme de leite e hortelã',
     price: 9.9,
     badges: ['especial', 'alcoólico', 'gelado'],
-    quantity: 0,
   },
   {
     id: 'coffee12',
@@ -134,7 +122,6 @@ export const coffeeOptions: CoffeeProduct[] = [
     description: 'Bebida adocicada preparada com café e leite de coco',
     price: 9.9,
     badges: ['especial'],
-    quantity: 0,
   },
   {
     id: 'coffee13',
@@ -143,7 +130,6 @@ export const coffeeOptions: CoffeeProduct[] = [
     description: 'Bebida preparada com grãos de café árabe e especiarias',
     price: 9.9,
     badges: ['especial'],
-    quantity: 0,
   },
   {
     id: 'coffee14',
@@ -152,6 +138,5 @@ export const coffeeOptions: CoffeeProduct[] = [
     description: 'Bebida a base de café, uísque irlandês, açúcar e chantilly',
     price: 9.9,
     badges: ['especial', 'alcoólico'],
-    quantity: 0,
   },
 ]

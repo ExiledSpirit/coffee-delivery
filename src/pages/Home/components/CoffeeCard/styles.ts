@@ -81,7 +81,7 @@ export const Price = styled.p`
   text-align: right;
 `
 
-export const Cifrao = styled.p`
+export const Cifrao = styled.span`
   font-weight: 400;
   font-size: 0.875rem;
   display: inline;
@@ -125,6 +125,7 @@ export const Quantity = styled.div`
 `
 
 export const CartButton = styled.button`
+  position: relative;
   padding: 0.5rem;
   border-radius: 0.5rem;
   border: 0;
@@ -135,5 +136,29 @@ export const CartButton = styled.button`
   &:hover {
     cursor: pointer;
     background: ${(props) => props.theme.purple};
+  }
+`
+
+interface CartQuantityProps {
+  show: boolean
+}
+
+export const CartQuantity = styled.div<CartQuantityProps>`
+  display: ${(props) => (props.show ? 'flex' : 'none')};
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 1.25rem;
+  height: 1.25rem;
+  right: -0.5rem;
+  top: -0.5rem;
+  background: ${(props) => props.theme['yellow-dark']};
+  border-radius: 1000px;
+
+  p {
+    color: ${(props) => props.theme.white};
+    font-weight: 700;
+    font-size: 0.75rem;
+    text-align: center;
   }
 `

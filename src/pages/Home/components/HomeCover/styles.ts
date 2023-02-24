@@ -4,7 +4,7 @@ export const Cover = styled.div`
   display: flex;
   flex-direction: row;
   width: 100%;
-  padding: 5rem 0;
+  padding: 0 0 5rem 0;
   gap: 3.5rem;
 
   .background {
@@ -23,18 +23,18 @@ export const CoverTextTitle = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1rem;
+`
 
-  h1 {
-    font-family: 'Baloo 2', sans-serif;
-    font-weight: 800;
-    font-size: 3rem;
-    color: ${(props) => props.theme['base-title']};
-  }
+export const CoverTitle = styled.h1`
+  font-family: 'Baloo 2', sans-serif;
+  font-weight: 800;
+  font-size: 3rem;
+  color: ${(props) => props.theme['base-title']};
+`
 
-  p {
-    font-size: 1.25rem;
-    color: ${(props) => props.theme['base-subtitle']};
-  }
+export const CoverSubtitle = styled.h2`
+  font-size: 1.25rem;
+  color: ${(props) => props.theme['base-subtitle']};
 `
 
 export const CoverItensGrid = styled.div`

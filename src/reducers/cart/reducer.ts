@@ -12,14 +12,23 @@ interface CartState {
 }
 
 export function cartReducer(state: CartState, action: any) {
-  switch (action.type) {
+  const { type, payload } = action
+  switch (type) {
     case ActionTypes.ADD_PRODUCT:
       return produce(state, (draft) => {
-        draft.products.push(action.payload.product)
+        if (
+          draft.products.findIndex(
+            (product) => product.coffee.id === payload.newProduct.id,
+          )
+        )
+          draft.products.push({
+            coffee: payload.newProduct,
+            quantity: payload.quantity,
+          })
       })
     case ActionTypes.UPDATE_PRODUCT_QUANTITY: {
       const productToUpdateIndex = state.products.findIndex((product) => {
-        return product.coffee.id === action.payload.id
+        return product.coffee.id === payload.id
       })
 
       if (productToUpdateIndex < 0) {
@@ -27,15 +36,18 @@ export function cartReducer(state: CartState, action: any) {
       }
 
       return produce(state, (draft) => {
-        draft.products[productToUpdateIndex].quantity = action.payload.quantity
+        draft.products[productToUpdateIndex].quantity = payload.quantity
       })
     }
     case ActionTypes.REMOVE_PRODUCT: {
       return produce(state, (draft) => {
-        draft.products.filter(
-          (product) => product.coffee.id !== action.payload.id,
+        draft.products = draft.products.filter(
+          (product) => product.coffee.id !== payload.id,
         )
       })
+    }
+    case ActionTypes.CLEAR_PRODUCTS: {
+      return { products: [] }
     }
     default:
       return state

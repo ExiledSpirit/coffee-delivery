@@ -4,6 +4,7 @@ import { GlobalStyle } from './styles/global'
 import { BrowserRouter } from 'react-router-dom'
 import { Router } from './Router'
 import { CartContextProvider } from './contexts/cart-context'
+import { PedidoContextProvider } from './contexts/pedido-context'
 
 function App() {
   return (
@@ -11,7 +12,9 @@ function App() {
       <GlobalStyle />
       <BrowserRouter>
         <CartContextProvider>
-          <Router />
+          <PedidoContextProvider>
+            <Router />
+          </PedidoContextProvider>
         </CartContextProvider>
       </BrowserRouter>
     </ThemeProvider>
