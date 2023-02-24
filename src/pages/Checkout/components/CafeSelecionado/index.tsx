@@ -54,15 +54,15 @@ export function CafeSelecionadoCard({ coffee }: CafeSelecionadoCardProps) {
           <p>{coffee.title}</p>
           <CartControls>
             <Quantity>
-              <QuantityButton onClick={handleReduceQuantity}>
+              <QuantityButton onClick={handleReduceQuantity} type="button">
                 <Minus size={14} />
               </QuantityButton>
               {quantity}
-              <QuantityButton onClick={handleAddQuantity}>
+              <QuantityButton onClick={handleAddQuantity} type="button">
                 <Plus size={14} />
               </QuantityButton>
             </Quantity>
-            <RemoveButton onClick={handleRemoveProduct}>
+            <RemoveButton onClick={handleRemoveProduct} type="button">
               <Trash size={16} />
               Remover
             </RemoveButton>

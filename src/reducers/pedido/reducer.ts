@@ -1,7 +1,7 @@
-import { useCart } from '../../contexts/cart-context'
 import { Pedido } from '../../contexts/pedido-context'
 import { ActionTypes } from './actions'
 import { produce } from 'immer'
+import { v4 } from 'uuid'
 
 interface PedidoState {
   pedidos: Pedido[]
@@ -12,11 +12,11 @@ export function pedidoReducer(state: PedidoState, action: any) {
   const { type, payload } = action
   switch (type) {
     case ActionTypes.ADD_PEDIDO:
+      console.log(state)
       return produce(state, (draft) => {
-        const { products, clearProducts } = useCart()
-
         const novoPedido: Pedido = {
-          products,
+          id: v4(),
+          products: payload.products,
           dataPedido: new Date(),
           paymentMethod: payload.paymentMethod,
           address: payload.address,
@@ -24,8 +24,6 @@ export function pedidoReducer(state: PedidoState, action: any) {
 
         draft.pedidos.push(novoPedido)
         draft.ultimoPedido = novoPedido
-
-        clearProducts()
       })
     default:
       return state

@@ -11,6 +11,7 @@ import { pedidoReducer } from '../reducers/pedido/reducer'
 import { addPedidoAction } from '../reducers/pedido/actions'
 
 export interface Pedido {
+  id: string
   products: CartProduct[]
   paymentMethod: PaymentMethodTypes
   address: FillAddressFormData
@@ -21,6 +22,7 @@ interface PedidoContextType {
   pedidos: Pedido[]
   ultimoPedido: Pedido
   addPedido: (
+    products: CartProduct[],
     paymentMethod: PaymentMethodTypes,
     address: FillAddressFormData,
   ) => void
@@ -33,6 +35,7 @@ export function PedidoContextProvider({ children }: { children: ReactNode }) {
     pedidoReducer,
     {
       pedidos: [],
+      ultimoPedido: null,
     },
     () => {
       const storedStateAsJSON = localStorage.getItem(
@@ -40,7 +43,10 @@ export function PedidoContextProvider({ children }: { children: ReactNode }) {
       )
 
       if (storedStateAsJSON) return JSON.parse(storedStateAsJSON)
-      return { products: [] }
+      return {
+        pedidos: [],
+        ultimoPedido: null,
+      }
     },
   )
 
@@ -53,10 +59,11 @@ export function PedidoContextProvider({ children }: { children: ReactNode }) {
   const { pedidos, ultimoPedido } = pedidoState
 
   function addPedido(
+    products: CartProduct[],
     paymentMethod: PaymentMethodTypes,
     address: FillAddressFormData,
   ) {
-    dispatch(addPedidoAction(paymentMethod, address))
+    dispatch(addPedidoAction(products, paymentMethod, address))
   }
 
   return (
@@ -72,4 +79,4 @@ export function PedidoContextProvider({ children }: { children: ReactNode }) {
   )
 }
 
-export const useCart = () => useContext(PedidoContext)
+export const usePedido = () => useContext(PedidoContext)

@@ -2,6 +2,7 @@ import {
   Card,
   CartButton,
   CartControls,
+  CartQuantity,
   Cifrao,
   Controls,
   Description,
@@ -25,9 +26,11 @@ interface CoffeeCardProps {
 export function CoffeeCard({ coffee }: CoffeeCardProps) {
   const { products, addProduct, updateProductQuantity } = useCart()
 
-  const [quantity, setQuantity] = useState(
-    products.find((product) => product.coffee.id === coffee.id)?.quantity || 1,
-  )
+  const [quantity, setQuantity] = useState(1)
+
+  const cartQuantity = products.find(
+    (product) => product.coffee.id === coffee.id,
+  )?.quantity
 
   const onCart: boolean = !!products.find(
     (product) => product.coffee.id === coffee.id,
@@ -84,6 +87,9 @@ export function CoffeeCard({ coffee }: CoffeeCardProps) {
             </Quantity>
             <CartButton onClick={handleAddProduct}>
               <ShoppingCart weight={'fill'} size={22} />
+              <CartQuantity show={(cartQuantity || 0) > 0}>
+                <p>{cartQuantity}</p>
+              </CartQuantity>
             </CartButton>
           </CartControls>
         </Controls>

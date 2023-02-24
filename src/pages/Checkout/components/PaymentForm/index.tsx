@@ -38,6 +38,7 @@ export function PaymentForm({
         <PaymentOption
           onClick={() => handleClickPaymentOption('credito')}
           selected={paymentMethod === 'credito'}
+          type="button"
         >
           <CreditCard />
           Cartão de crédito
@@ -45,6 +46,7 @@ export function PaymentForm({
         <PaymentOption
           onClick={() => handleClickPaymentOption('debito')}
           selected={paymentMethod === 'debito'}
+          type="button"
         >
           <Bank />
           Cartão de débito
@@ -52,6 +54,7 @@ export function PaymentForm({
         <PaymentOption
           onClick={() => handleClickPaymentOption('dinheiro')}
           selected={paymentMethod === 'dinheiro'}
+          type="button"
         >
           <Money />
           Dinheiro

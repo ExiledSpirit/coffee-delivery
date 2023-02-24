@@ -51,15 +51,25 @@ export const Label = styled.label`
   margin-right: 15px;
 `
 
-const BaseInput = styled.input`
+interface BaseInputProps {
+  error: boolean
+}
+
+const BaseInput = styled.input<BaseInputProps>`
+  display: block;
   padding: 0.75rem;
   height: 2.625rem;
   background: ${(props) => props.theme['base-input']};
-  border: 1px solid ${(props) => props.theme['base-button']};
+  border: 1px solid
+    ${(props) => {
+      if (props.error) return props.theme.warn
+      return props.theme['base-button']
+    }};
   border-radius: 4px;
   font-size: 1rem;
   font-weight: 400;
   color: ${(props) => props.theme['base-text']};
+  transition: border 250ms linear;
 
   ::placeholder {
     color: ${(props) => props.theme['base-label']};

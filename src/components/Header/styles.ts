@@ -65,18 +65,26 @@ export const Location = styled.div`
   }
 `
 
-export const CartButton = styled.button`
+const BaseButton = styled.button`
   position: relative;
   padding: 0.5rem;
   border-radius: 0.5rem;
   border: 0;
   line-height: 0.7;
-  background: ${(props) => props.theme['yellow-light']};
-  color: ${(props) => props.theme['yellow-dark']};
 
   &:hover {
     cursor: pointer;
   }
+`
+
+export const CartButton = styled(BaseButton)`
+  background: ${(props) => props.theme['yellow-light']};
+  color: ${(props) => props.theme['yellow-dark']};
+`
+
+export const PedidosButton = styled(BaseButton)`
+  background: ${(props) => props.theme['purple-light']};
+  color: ${(props) => props.theme['purple-dark']};
 `
 
 export const CartQuantity = styled.div`

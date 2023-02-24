@@ -44,6 +44,7 @@ export const CompletePedidoCard = styled(BaseCard)`
 export const Separator = styled.div`
   width: 100%;
   border: 1px solid ${(props) => props.theme['base-button']};
+  margin: 2rem 0;
 `
 
 export const CheckoutInfo = styled.div`

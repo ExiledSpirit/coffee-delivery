@@ -1,4 +1,5 @@
 import { useFormContext } from 'react-hook-form'
+import { FillAddressFormData } from '../../index'
 import {
   BairroInput,
   CepInput,
@@ -12,14 +13,17 @@ import {
   HeaderSubtitle,
   HeaderTitle,
   InputRow,
-  Label,
   NumeroInput,
   RuaInput,
 } from './styles'
 import { MapPinLine } from 'phosphor-react'
 
 export function FillAddressForm() {
-  const { register } = useFormContext()
+  const {
+    register,
+    formState: { errors },
+  } = useFormContext<FillAddressFormData>()
+
   return (
     <Container>
       <Header>
@@ -33,22 +37,34 @@ export function FillAddressForm() {
       </Header>
       <FormContainer>
         <InputRow>
-          <CepInput id="cep" placeholder="CEP" {...register('cep')}></CepInput>
+          <CepInput
+            error={!!errors.cep}
+            id="cep"
+            placeholder="CEP"
+            {...register('cep')}
+          ></CepInput>
           <EstadoInput
+            error={!!errors.estado}
             id="estado"
             placeholder="Estado"
             {...register('estado')}
           />
         </InputRow>
-        <RuaInput id="rua" placeholder="Rua" {...register('rua')}></RuaInput>
+        <RuaInput
+          error={!!errors.rua}
+          id="rua"
+          placeholder="Rua"
+          {...register('rua')}
+        ></RuaInput>
         <InputRow>
           <NumeroInput
+            error={!!errors.numero}
             id="numero"
             placeholder="Número"
             {...register('numero')}
           />
-          <Label htmlFor="complemento">opcional</Label>
           <ComplementoInput
+            error={!!errors.complemento}
             id="complemento"
             placeholder="Complemento"
             {...register('complemento')}
@@ -56,11 +72,13 @@ export function FillAddressForm() {
         </InputRow>
         <InputRow>
           <BairroInput
+            error={!!errors.bairro}
             id="bairro"
             placeholder="Bairro"
             {...register('bairro')}
           />
           <CidadeInput
+            error={!!errors.cidade}
             id="cidade"
             placeholder="Cidade"
             {...register('cidade')}

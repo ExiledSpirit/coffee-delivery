@@ -5,8 +5,9 @@ import {
   FixedHeader,
   HeaderContainer,
   Location,
+  PedidosButton,
 } from './styles'
-import { ShoppingCart, MapPin } from 'phosphor-react'
+import { ShoppingCart, MapPin, ShoppingBagOpen } from 'phosphor-react'
 import Logo from '../../assets/Logo.svg'
 import { useCart } from '../../contexts/cart-context'
 import { useCallback, useEffect, useState } from 'react'
@@ -60,6 +61,11 @@ export function Header() {
                 <p>{overallQuantity}</p>
               </CartQuantity>
             </CartButton>
+          </NavLink>
+          <NavLink to={'/pedidos'}>
+            <PedidosButton>
+              <ShoppingBagOpen weight={'fill'} size={22} />
+            </PedidosButton>
           </NavLink>
         </Actions>
       </HeaderContainer>
