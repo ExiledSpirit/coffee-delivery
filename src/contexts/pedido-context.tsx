@@ -13,6 +13,7 @@ import { addPedidoAction } from '../reducers/pedido/actions'
 export interface Pedido {
   id: string
   products: CartProduct[]
+  custo: number
   paymentMethod: PaymentMethodTypes
   address: FillAddressFormData
   dataPedido: Date

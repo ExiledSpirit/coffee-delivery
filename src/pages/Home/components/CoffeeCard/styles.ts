@@ -35,18 +35,18 @@ export const Tags = styled.div`
 `
 
 export const Tag = styled.div`
-background: ${(props) => props.theme['yellow-light']};
-border-radius: 100px;
-padding: 0.25rem 0.5rem;
-display: flex;
-align-items: center;
-justify-content: center;
+  background: ${(props) => props.theme['yellow-light']};
+  border-radius: 100px;
+  padding: 0.25rem 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-p {
-  color: ${(props) => props.theme['yellow-dark']};
-  font-weight: 700;
-  font-size 0.75rem;
-}
+  p {
+    color: ${(props) => props.theme['yellow-dark']};
+    font-weight: 700;
+    font-size: 0.75rem;
+  }
 `
 
 export const Title = styled.p`
