@@ -21,6 +21,7 @@ import {
 import { PaymentForm } from './components/PaymentForm'
 import { useState } from 'react'
 import { usePedido } from '../../contexts/pedido-context'
+import { useNavigate } from 'react-router-dom'
 
 const fillAddressFormValidationSchema = zod.object({
   cep: zod.string().min(8, { message: 'Informe o CEP' }),
@@ -42,6 +43,8 @@ export function Checkout() {
   const { products, totalCost, clearProducts } = useCart()
 
   const { addPedido } = usePedido()
+
+  const navigate = useNavigate()
 
   const [paymentMethod, setPaymentMethod] =
     useState<PaymentMethodTypes>('credito')
@@ -67,6 +70,7 @@ export function Checkout() {
     addPedido(products, paymentMethod, data)
     clearProducts()
     reset()
+    navigate('../sucesso')
   }
 
   return (
